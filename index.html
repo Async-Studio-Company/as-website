@@ -22,6 +22,7 @@
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Async Studio | Indie Game Studio">
   <meta name="twitter:description" content="Crafting worlds where every run tells a new story.">
+  <meta name="twitter:image" content="https://asyncstudio.be/og-image.png">
 
   <!-- GEO / AI discoverability -->
   <meta name="robots" content="index, follow">
@@ -32,7 +33,10 @@
     "name": "Async Studio",
     "url": "https://asyncstudio.be",
     "description": "Independent game development studio specialising in genre-blending experiences.",
-    "foundingLocation": "Belgium"
+    "foundingLocation": {
+      "@type": "Place",
+      "name": "Belgium"
+    }
   }
   </script>
 
@@ -42,7 +46,9 @@
 </head>
 <body>
 
-  <canvas id="bg-canvas"></canvas>
+  <canvas id="bg-canvas" aria-hidden="true"></canvas>
+
+  <a class="skip-link" href="#hero">Skip to main content</a>
 
   <nav aria-label="Main navigation">
     <div class="nav-logo" aria-label="Async Studio">Async Studio</div>
@@ -77,8 +83,8 @@
           </p>
         </div>
       </div>
-      <footer class="footer-bar" role="contentinfo">
-        <span class="footer-copy">2024 Async Studio. All rights reserved.</span>
+      <footer class="footer-bar">
+        <span class="footer-copy">2024–2026 Async Studio. All rights reserved.</span>
       </footer>
     </section>
   </main>
