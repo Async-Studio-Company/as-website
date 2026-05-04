@@ -1,6 +1,6 @@
 # Async Studio — Website
 
-Brand presence website for [Async Studio](https://asyncstudio.be), an independent game development studio building games at the intersection of genres.
+Brand presence website for [Async Studio](https://asyncstudio.be), an independent game development studio founded in belgium and building games at the intersection of genres.
 
 ## Stack
 

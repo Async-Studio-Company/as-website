@@ -2,8 +2,7 @@
 
 > Independent game development studio building games at the intersection of genres.
 
-Async Studio is a small, independent game development studio based in Belgium. We craft games that take mechanics players already know and love and place them in entirely new contexts — not by layering genres on top of each other, but by finding which elements from each tradition belong together and building something coherent from that intersection.
-
+Async Studio is a small, independent game development studio. We craft games that take mechanics players already know and love and place them in entirely new contexts, not by layering genres on top of each other, but by finding which elements from each tradition belong together and building something coherent from that intersection.
 The result is an experience fans of multiple traditions immediately recognise as made for them: familiar enough to feel intuitive, new enough to feel genuinely exciting.
 
 ## Studio
