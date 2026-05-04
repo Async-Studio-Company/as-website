@@ -135,6 +135,68 @@
     ::-webkit-scrollbar { width: 5px; }
     ::-webkit-scrollbar-track { background: #040c1a; }
     ::-webkit-scrollbar-thumb { background: rgba(30, 90, 170, 0.35); border-radius: 3px; }
+
+    /* ---- Hero ---- */
+    .hero-wordmark {
+      font-size: clamp(3.2em, 9vw, 6.5em);
+      font-weight: 900;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      background: linear-gradient(160deg, #c8e8ff 0%, #70b8f8 35%, #28d8f0 75%, #80c8ff 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      line-height: 1;
+      margin-bottom: 40px;
+      filter: drop-shadow(0 0 60px rgba(30, 120, 230, 0.5));
+    }
+
+    .hero-tagline-main {
+      font-size: clamp(1.05em, 2.2vw, 1.3em);
+      font-weight: 600;
+      letter-spacing: 0.03em;
+      color: rgba(200, 235, 255, 0.88);
+      line-height: 1.35;
+      margin-bottom: 14px;
+    }
+
+    .hero-rule {
+      width: 36px;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(50, 160, 220, 0.55), transparent);
+      margin: 0 auto 14px;
+    }
+
+    .hero-tagline-sub {
+      font-size: 0.7em;
+      font-weight: 300;
+      letter-spacing: 0.14em;
+      color: rgba(100, 175, 225, 0.52);
+      text-transform: uppercase;
+      margin-bottom: 52px;
+    }
+
+    .hero-cta {
+      display: inline-block;
+      padding: 13px 44px;
+      background: rgba(20, 80, 180, 0.28);
+      border: 1px solid rgba(50, 150, 220, 0.35);
+      border-radius: 50px;
+      color: rgba(120, 200, 240, 0.9);
+      font-size: 0.78em;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      text-decoration: none;
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      box-shadow: 0 4px 24px rgba(20, 90, 200, 0.25), inset 0 1px 0 rgba(100, 180, 255, 0.1);
+      transition: box-shadow 0.2s, border-color 0.2s;
+    }
+
+    .hero-cta:hover {
+      border-color: rgba(60, 170, 240, 0.55);
+      box-shadow: 0 4px 36px rgba(20, 120, 220, 0.4), inset 0 1px 0 rgba(120, 200, 255, 0.15);
+    }
   </style>
 </head>
 <body>
