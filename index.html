@@ -347,7 +347,134 @@
   </main>
 
   <script>
-    /* JS goes here in Task 5+ */
+    (function () {
+  'use strict';
+
+  const canvas = document.getElementById('bg-canvas');
+  const ctx = canvas.getContext('2d');
+
+  function resize() {
+    canvas.width = window.innerWidth;
+    canvas.height = Math.max(document.body.scrollHeight, window.innerHeight);
+  }
+  resize();
+  window.addEventListener('resize', resize);
+
+  const W = () => canvas.width;
+  const H = () => canvas.height;
+
+  /* ---- Aurora orbs ---- */
+  const orbs = [
+    { x: 0.15, y: 0.12, r: 0.28, vx:  0.00022, vy:  0.00014, color: [18,  70, 200] },
+    { x: 0.75, y: 0.25, r: 0.22, vx: -0.00019, vy:  0.00025, color: [10, 155, 200] },
+    { x: 0.50, y: 0.55, r: 0.30, vx:  0.00016, vy: -0.00017, color: [50,  30, 180] },
+    { x: 0.85, y: 0.75, r: 0.20, vx: -0.00025, vy: -0.00019, color: [15, 120, 180] },
+    { x: 0.20, y: 0.85, r: 0.24, vx:  0.00019, vy:  0.00011, color: [20,  80, 220] },
+  ];
+
+  /* ---- Particle constellation ---- */
+  const DOT_PALETTE = [
+    { r: 1.2, color: 'rgba(80,180,245,0.75)' },
+    { r: 1.8, color: 'rgba(50,210,220,0.65)' },
+    { r: 2.4, color: 'rgba(130,160,255,0.60)' },
+    { r: 1.0, color: 'rgba(60,200,255,0.55)' },
+    { r: 2.0, color: 'rgba(100,130,240,0.70)' },
+    { r: 1.4, color: 'rgba(40,220,200,0.60)' },
+  ];
+
+  function makeDot(i) {
+    const p = DOT_PALETTE[i % DOT_PALETTE.length];
+    return {
+      x: Math.random(), y: Math.random(),
+      vx: (Math.random() - 0.5) * 0.00018,
+      vy: (Math.random() - 0.5) * 0.00018,
+      r: p.r, color: p.color,
+      lit: 0,
+    };
+  }
+
+  const NUM_DOTS = 70;
+  const dots = Array.from({ length: NUM_DOTS }, (_, i) => makeDot(i));
+
+  /* ---- Spell projectiles (Task 7 adds these) ---- */
+  const projectiles = [];
+  const blasts = [];
+
+  function drawFrame() {
+    const w = W(), h = H();
+    ctx.clearRect(0, 0, w, h);
+    ctx.fillStyle = '#04101e';
+    ctx.fillRect(0, 0, w, h);
+
+    /* Aurora orbs */
+    orbs.forEach(o => {
+      o.x += o.vx; o.y += o.vy;
+      if (o.x < -o.r || o.x > 1 + o.r) o.vx *= -1;
+      if (o.y < -o.r || o.y > 1 + o.r) o.vy *= -1;
+      const cx = o.x * w, cy = o.y * h, rad = o.r * Math.min(w, h);
+      const g = ctx.createRadialGradient(cx, cy, 0, cx, cy, rad);
+      g.addColorStop(0,   `rgba(${o.color[0]},${o.color[1]},${o.color[2]},0.20)`);
+      g.addColorStop(0.5, `rgba(${o.color[0]},${o.color[1]},${o.color[2]},0.06)`);
+      g.addColorStop(1,   'rgba(0,0,0,0)');
+      ctx.beginPath();
+      ctx.arc(cx, cy, rad, 0, Math.PI * 2);
+      ctx.fillStyle = g;
+      ctx.fill();
+    });
+
+    /* Dot connections */
+    const MAX_CONN = 0.07 * Math.min(w, h);
+    for (let i = 0; i < dots.length; i++) {
+      for (let j = i + 1; j < dots.length; j++) {
+        const px = dots[i].x * w, py = dots[i].y * h;
+        const qx = dots[j].x * w, qy = dots[j].y * h;
+        const dx = px - qx, dy = py - qy;
+        const dist = Math.sqrt(dx * dx + dy * dy);
+        if (dist < MAX_CONN) {
+          ctx.beginPath();
+          ctx.strokeStyle = `rgba(60,150,230,${0.10 * (1 - dist / MAX_CONN)})`;
+          ctx.lineWidth = 0.5;
+          ctx.moveTo(px, py);
+          ctx.lineTo(qx, qy);
+          ctx.stroke();
+        }
+      }
+    }
+
+    /* Dots */
+    dots.forEach(d => {
+      d.x += d.vx; d.y += d.vy;
+      if (d.x < 0) d.x = 1; if (d.x > 1) d.x = 0;
+      if (d.y < 0) d.y = 1; if (d.y > 1) d.y = 0;
+      if (d.lit > 0) {
+        d.lit -= 0.04;
+        const glow = ctx.createRadialGradient(d.x * w, d.y * h, 0, d.x * w, d.y * h, d.r * 6 * d.lit);
+        glow.addColorStop(0, `rgba(180,230,255,${0.5 * d.lit})`);
+        glow.addColorStop(1, 'rgba(0,0,0,0)');
+        ctx.beginPath();
+        ctx.arc(d.x * w, d.y * h, d.r * 6 * d.lit, 0, Math.PI * 2);
+        ctx.fillStyle = glow;
+        ctx.fill();
+      }
+      ctx.beginPath();
+      ctx.arc(d.x * w, d.y * h, d.r + (d.lit > 0 ? d.lit * 1.5 : 0), 0, Math.PI * 2);
+      ctx.fillStyle = d.color;
+      ctx.fill();
+    });
+
+    /* Projectiles + blasts drawn in Task 7 */
+    drawProjectiles(w, h);
+    drawBlasts(w, h);
+
+    requestAnimationFrame(drawFrame);
+  }
+
+  /* Stubs expanded in Task 7 */
+  function drawProjectiles(w, h) {}
+  function drawBlasts(w, h) {}
+
+  drawFrame();
+})();
   </script>
 </body>
 </html>
