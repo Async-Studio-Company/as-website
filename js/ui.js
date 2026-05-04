@@ -9,6 +9,16 @@
     emailLink.href = 'mailto:' + email;
   }
 
+  // CTA scroll — bypasses iOS two-tap anchor issue
+  const cta = document.querySelector('.hero-cta');
+  if (cta) {
+    cta.addEventListener('click', e => {
+      e.preventDefault();
+      const target = document.getElementById('about');
+      if (target) window.scrollTo({ top: target.offsetTop, behavior: 'smooth' });
+    });
+  }
+
   const modals = {
     privacy: document.getElementById('modal-privacy'),
     contact: document.getElementById('modal-contact'),
