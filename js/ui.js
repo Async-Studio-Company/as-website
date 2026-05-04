@@ -19,6 +19,34 @@
     });
   }
 
+  // About section: hide content until section has snapped into view, then reveal
+  const aboutSection = document.getElementById('about');
+  if (aboutSection && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    const revealEls = [
+      aboutSection.querySelector('.section-label'),
+      aboutSection.querySelector('.section-title'),
+      aboutSection.querySelector('.about-glass'),
+    ].filter(Boolean);
+
+    revealEls.forEach((el, i) => {
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(20px)';
+      el.style.transition = `opacity 0.45s ease ${i * 0.07}s, transform 0.45s ease ${i * 0.07}s`;
+    });
+
+    const io = new IntersectionObserver(([entry]) => {
+      if (entry.intersectionRatio >= 0.8) {
+        revealEls.forEach(el => {
+          el.style.opacity = '1';
+          el.style.transform = 'translateY(0)';
+        });
+        io.disconnect();
+      }
+    }, { threshold: 0.8 });
+
+    io.observe(aboutSection);
+  }
+
   const modals = {
     privacy: document.getElementById('modal-privacy'),
     contact: document.getElementById('modal-contact'),
