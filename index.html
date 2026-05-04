@@ -5,24 +5,27 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <!-- Primary SEO -->
-  <title>Async Studio | Indie Game Studio</title>
-  <meta name="description" content="Async Studio is an independent game development studio crafting genre-bending worlds. We blend RPG depth with Roguelite momentum to build handcrafted, infinitely replayable experiences.">
-  <meta name="keywords" content="indie game studio, genre-bending games, RPG roguelite, independent game development, async studio">
+  <title>Async Studio | Crafting Refreshing Gaming Experiences</title>
+  <meta name="description" content="Async Studio crafts refreshing gaming experiences inspired by your favorite games. We take mechanics players know and love from different genres and build something fans of multiple traditions will immediately recognise as made for them.">
+  <meta name="keywords" content="indie game studio, genre-blending games, independent game developers, refreshing game experiences, async studio, belgium game studio, innovative game design">
   <meta name="author" content="Async Studio">
   <link rel="canonical" href="https://asyncstudio.be">
+  <link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg">
 
   <!-- Open Graph -->
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://asyncstudio.be">
-  <meta property="og:title" content="Async Studio | Indie Game Studio">
-  <meta property="og:description" content="Crafting worlds where every run tells a new story. Genre-bending indie games built with intention.">
-  <meta property="og:image" content="https://asyncstudio.be/og-image.png">
+  <meta property="og:title" content="Async Studio | Crafting Refreshing Gaming Experiences">
+  <meta property="og:description" content="Independent game developers crafting refreshing experiences inspired by your favorite games. Genre-blending done deliberately.">
+  <meta property="og:image" content="https://asyncstudio.be/assets/img/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Async Studio | Indie Game Studio">
-  <meta name="twitter:description" content="Crafting worlds where every run tells a new story.">
-  <meta name="twitter:image" content="https://asyncstudio.be/og-image.png">
+  <meta name="twitter:title" content="Async Studio | Crafting Refreshing Gaming Experiences">
+  <meta name="twitter:description" content="Independent game developers crafting refreshing experiences inspired by your favorite games.">
+  <meta name="twitter:image" content="https://asyncstudio.be/assets/img/og-image.png">
 
   <!-- GEO / AI discoverability -->
   <meta name="robots" content="index, follow">
@@ -32,280 +35,20 @@
     "@type": "Organization",
     "name": "Async Studio",
     "url": "https://asyncstudio.be",
-    "description": "Independent game development studio specialising in genre-blending experiences.",
+    "description": "Async Studio crafts refreshing gaming experiences inspired by your favorite games. We take mechanics players know and love from different genres and build something fans of multiple traditions will immediately recognise as made for them.",
     "foundingLocation": {
       "@type": "Place",
       "name": "Belgium"
-    }
+    },
+    "knowsAbout": ["game design", "indie game development", "genre-blending", "game mechanics", "refreshing game experiences"]
   }
   </script>
 
-  <style>
-    /* ---- Reset & base ---- */
-    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-
-    html {
-      scroll-behavior: smooth;
-      scroll-snap-type: y mandatory;
-      scrollbar-width: thin;
-      scrollbar-color: rgba(30, 90, 170, 0.35) #040c1a;
-    }
-
-    body {
-      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
-      background: #04101e;
-      color: #c8dff0;
-      overflow-x: hidden;
-    }
-
-    /* ---- Canvas background ---- */
-    #bg-canvas {
-      position: fixed;
-      inset: 0;
-      z-index: 0;
-      pointer-events: none;
-    }
-
-    /* ---- Stacking ---- */
-    nav, main, section, footer { position: relative; z-index: 1; }
-
-    /* ---- Sections: full-screen scroll snap ---- */
-    section {
-      height: 100vh;
-      height: 100dvh;
-      scroll-snap-align: start;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      padding: 80px 40px 40px;
-      text-align: center;
-    }
-
-    /* ---- Skip link (hidden until focused) ---- */
-    .skip-link {
-      position: absolute;
-      top: -100px;
-      left: 16px;
-      z-index: 9999;
-      padding: 8px 16px;
-      background: #0a2060;
-      color: #80c8f0;
-      border-radius: 4px;
-      font-size: 0.8em;
-      text-decoration: none;
-      transition: top 0.2s;
-    }
-    .skip-link:focus { top: 16px; }
-
-    /* ---- Nav ---- */
-    nav {
-      position: fixed;
-      top: 0; left: 0; right: 0;
-      z-index: 100;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 18px 60px;
-      background: rgba(4, 12, 28, 0.5);
-      backdrop-filter: blur(24px) saturate(1.4);
-      -webkit-backdrop-filter: blur(24px) saturate(1.4);
-      border-bottom: 1px solid rgba(40, 120, 200, 0.12);
-    }
-
-    .nav-logo {
-      font-size: 0.9em;
-      font-weight: 800;
-      letter-spacing: 0.22em;
-      color: rgba(130, 200, 240, 0.85);
-      text-transform: uppercase;
-    }
-
-    .nav-links { display: flex; gap: 36px; }
-
-    .nav-links a {
-      font-size: 0.75em;
-      letter-spacing: 0.14em;
-      color: rgba(130, 190, 230, 0.55);
-      text-decoration: none;
-      text-transform: uppercase;
-      transition: color 0.2s;
-    }
-
-    .nav-links a:hover { color: rgba(130, 200, 240, 0.9); }
-
-    .nav-links a:focus-visible {
-      outline: 2px solid rgba(80, 180, 240, 0.8);
-      outline-offset: 3px;
-      border-radius: 2px;
-    }
-
-    /* ---- Scrollbar ---- */
-    ::-webkit-scrollbar { width: 5px; }
-    ::-webkit-scrollbar-track { background: #040c1a; }
-    ::-webkit-scrollbar-thumb { background: rgba(30, 90, 170, 0.35); border-radius: 3px; }
-
-    /* ---- Hero ---- */
-    .hero-wordmark {
-      font-size: clamp(3.2em, 9vw, 6.5em);
-      font-weight: 900;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      background: linear-gradient(160deg, #c8e8ff 0%, #70b8f8 35%, #28d8f0 75%, #80c8ff 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      line-height: 1;
-      margin-bottom: 40px;
-      filter: drop-shadow(0 0 60px rgba(30, 120, 230, 0.5));
-    }
-
-    .hero-tagline-main {
-      font-size: clamp(1.05em, 2.2vw, 1.3em);
-      font-weight: 600;
-      letter-spacing: 0.03em;
-      color: rgba(200, 235, 255, 0.88);
-      line-height: 1.35;
-      margin-bottom: 14px;
-    }
-
-    .hero-rule {
-      width: 36px;
-      height: 1px;
-      background: linear-gradient(90deg, transparent, rgba(50, 160, 220, 0.55), transparent);
-      margin: 0 auto 14px;
-    }
-
-    .hero-tagline-sub {
-      font-size: 0.7em;
-      font-weight: 300;
-      letter-spacing: 0.14em;
-      color: rgba(100, 175, 225, 0.52);
-      text-transform: uppercase;
-      margin-bottom: 52px;
-    }
-
-    .hero-cta {
-      display: inline-block;
-      padding: 13px 44px;
-      background: rgba(20, 80, 180, 0.28);
-      border: 1px solid rgba(50, 150, 220, 0.35);
-      border-radius: 50px;
-      color: rgba(120, 200, 240, 0.9);
-      font-size: 0.78em;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      text-decoration: none;
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      box-shadow: 0 4px 24px rgba(20, 90, 200, 0.25), inset 0 1px 0 rgba(100, 180, 255, 0.1);
-      transition: box-shadow 0.2s, border-color 0.2s;
-    }
-
-    .hero-cta:hover {
-      border-color: rgba(60, 170, 240, 0.55);
-      box-shadow: 0 4px 36px rgba(20, 120, 220, 0.4), inset 0 1px 0 rgba(120, 200, 255, 0.15);
-    }
-
-    .hero-cta:focus-visible {
-      outline: 2px solid rgba(80, 180, 240, 0.8);
-      outline-offset: 4px;
-    }
-
-    /* ---- About ---- */
-    #about {
-      justify-content: space-between;
-      padding: 80px 0 0;
-    }
-
-    .about-upper {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      flex: 1;
-      justify-content: center;
-      padding-left: 40px;
-      padding-right: 40px;
-    }
-
-    .section-label {
-      font-size: 0.66em;
-      letter-spacing: 0.32em;
-      color: rgba(50, 170, 220, 0.55);
-      text-transform: uppercase;
-      margin-bottom: 18px;
-    }
-
-    .section-title {
-      font-size: clamp(1.6em, 4vw, 2.3em);
-      font-weight: 700;
-      letter-spacing: 0.07em;
-      background: linear-gradient(120deg, #b0d8ff 0%, #60c8f0 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      margin-bottom: 44px;
-    }
-
-    .about-glass {
-      background: rgba(8, 28, 72, 0.28);
-      border: 1px solid rgba(40, 120, 200, 0.16);
-      backdrop-filter: blur(36px) saturate(1.5);
-      -webkit-backdrop-filter: blur(36px) saturate(1.5);
-      border-radius: 24px;
-      padding: 52px 60px;
-      max-width: 760px;
-      box-shadow:
-        0 12px 60px rgba(6, 28, 100, 0.4),
-        inset 0 1px 0 rgba(80, 160, 240, 0.1),
-        inset 0 -1px 0 rgba(20, 60, 160, 0.08);
-    }
-
-    .about-text {
-      font-size: 1.02em;
-      line-height: 1.9;
-      color: rgba(165, 210, 245, 0.78);
-      font-weight: 300;
-    }
-
-    .about-rule {
-      width: 48px;
-      height: 1px;
-      background: linear-gradient(90deg, transparent, rgba(50, 160, 220, 0.4), transparent);
-      margin: 36px auto;
-    }
-
-    /* ---- Footer bar (inside About section) ---- */
-    .footer-bar {
-      width: 100%;
-      border-top: 1px solid rgba(30, 70, 120, 0.18);
-      background: rgba(4, 10, 24, 0.6);
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
-      padding: 18px 60px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .footer-copy {
-      font-size: 0.68em;
-      letter-spacing: 0.1em;
-      color: rgba(70, 110, 155, 0.45);
-    }
-
-    /* ---- Reduced motion ---- */
-    @media (prefers-reduced-motion: reduce) {
-      html { scroll-behavior: auto; }
-      .skip-link, .hero-cta, .nav-links a { transition: none; }
-    }
-  </style>
+  <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
   <canvas id="bg-canvas" aria-hidden="true"></canvas>
-
-  <a class="skip-link" href="#hero">Skip to main content</a>
 
   <nav aria-label="Main navigation">
     <div class="nav-logo" aria-label="Async Studio">Async Studio</div>
@@ -316,165 +59,62 @@
 
   <main>
     <section id="hero" tabindex="-1" aria-label="Hero">
+      <p class="section-label">Independent Game Developers</p>
       <h1 class="hero-wordmark">Async Studio</h1>
-      <p class="hero-tagline-main">Crafting Worlds where every Run Tells a New Story</p>
+      <p class="hero-tagline-main">Crafting Refreshing Experiences Inspired by your Favorite Games</p>
       <div class="hero-rule" aria-hidden="true"></div>
-      <p class="hero-tagline-sub">Independent Game Studio</p>
+      <!-- <p class="hero-tagline-sub">Crafting Refreshing Game Experiences Inspired by your Favorite Games</p> -->
       <a class="hero-cta" href="#about">Discover our Studio</a>
     </section>
 
     <section id="about" aria-label="About Async Studio">
-      <div class="about-upper">
-        <p class="section-label">Our Studio</p>
-        <h2 class="section-title">Where Genres Collide</h2>
-        <div class="about-glass">
-          <p class="about-text">
-            Async Studio is an independent game development studio built around the intersection of genres.
-            We create experiences that blend the depth of RPGs with the relentless momentum of Roguelite gameplay,
-            crafting worlds that feel handcrafted yet infinitely replayable.
-          </p>
-          <div class="about-rule" aria-hidden="true"></div>
-          <p class="about-text">
-            We are a small, focused team driven by a love for emergent storytelling, tight systems design,
-            and the thrill of discovery. Every mechanic we ship is intentional. Every run, a new journey.
-          </p>
-        </div>
+      <p class="section-label">Our Studio</p>
+      <h2 class="section-title">Game Design Approach </h2>
+      <div class="about-glass">
+        <p class="about-text">
+          We craft games around mechanics players already know and love, then ask what they become
+          when placed in an entirely different context. The design challenge we take on is to find 
+          which elements of different games genre belong together, and to build something unique 
+          and refreshing from that intersection.
+        </p>
+        <!-- <div class="about-rule" aria-hidden="true"></div> -->
+        <!-- <p class="about-text about-text--meta"></p> -->
       </div>
+
       <footer class="footer-bar">
-        <span class="footer-copy">2024–2026 Async Studio. All rights reserved.</span>
+        <span class="footer-copy">© 2026 Async Studio. All rights reserved.</span>
+        <span class="footer-sep" aria-hidden="true">·</span>
+        <button class="footer-link" id="btn-privacy">Privacy &amp; Cookies</button>
+        <span class="footer-sep" aria-hidden="true">·</span>
+        <button class="footer-link" id="btn-contact">Contact</button>
       </footer>
     </section>
   </main>
 
-  <script>
-    (function () {
-  'use strict';
+  <!-- Privacy & Cookies modal -->
+  <div class="modal" id="modal-privacy" role="dialog" aria-modal="true" aria-labelledby="modal-privacy-title">
+    <div class="modal-box">
+      <button class="modal-close" aria-label="Close">&times;</button>
+      <h2 class="modal-title" id="modal-privacy-title">Privacy &amp; Cookies</h2>
+      <p class="modal-body">
+        We don't use cookies. We don't collect, store, or process any personal data.
+        This website contains no analytics, tracking scripts, or third-party services of any kind.
+        Visiting this site leaves no trace on our end.
+      </p>
+    </div>
+  </div>
 
-  const canvas = document.getElementById('bg-canvas');
-  const ctx = canvas.getContext('2d');
+  <!-- Contact modal -->
+  <div class="modal" id="modal-contact" role="dialog" aria-modal="true" aria-labelledby="modal-contact-title">
+    <div class="modal-box">
+      <button class="modal-close" aria-label="Close">&times;</button>
+      <h2 class="modal-title" id="modal-contact-title">Contact</h2>
+      <!--<p class="modal-body">You can reach us via email at</p>-->
+      <a class="modal-email" id="contact-email-link" href="#">·</a>
+    </div>
+  </div>
 
-  function resize() {
-    canvas.width = window.innerWidth;
-    canvas.height = Math.max(document.body.scrollHeight, window.innerHeight);
-  }
-  resize();
-  window.addEventListener('resize', resize);
-
-  const W = () => canvas.width;
-  const H = () => canvas.height;
-
-  /* ---- Aurora orbs ---- */
-  const orbs = [
-    { x: 0.15, y: 0.12, r: 0.28, vx:  0.00022, vy:  0.00014, color: [18,  70, 200] },
-    { x: 0.75, y: 0.25, r: 0.22, vx: -0.00019, vy:  0.00025, color: [10, 155, 200] },
-    { x: 0.50, y: 0.55, r: 0.30, vx:  0.00016, vy: -0.00017, color: [50,  30, 180] },
-    { x: 0.85, y: 0.75, r: 0.20, vx: -0.00025, vy: -0.00019, color: [15, 120, 180] },
-    { x: 0.20, y: 0.85, r: 0.24, vx:  0.00019, vy:  0.00011, color: [20,  80, 220] },
-  ];
-
-  /* ---- Particle constellation ---- */
-  const DOT_PALETTE = [
-    { r: 1.2, color: 'rgba(80,180,245,0.75)' },
-    { r: 1.8, color: 'rgba(50,210,220,0.65)' },
-    { r: 2.4, color: 'rgba(130,160,255,0.60)' },
-    { r: 1.0, color: 'rgba(60,200,255,0.55)' },
-    { r: 2.0, color: 'rgba(100,130,240,0.70)' },
-    { r: 1.4, color: 'rgba(40,220,200,0.60)' },
-  ];
-
-  function makeDot(i) {
-    const p = DOT_PALETTE[i % DOT_PALETTE.length];
-    return {
-      x: Math.random(), y: Math.random(),
-      vx: (Math.random() - 0.5) * 0.00018,
-      vy: (Math.random() - 0.5) * 0.00018,
-      r: p.r, color: p.color,
-      lit: 0,
-    };
-  }
-
-  const NUM_DOTS = 70;
-  const dots = Array.from({ length: NUM_DOTS }, (_, i) => makeDot(i));
-
-  /* ---- Spell projectiles (Task 7 adds these) ---- */
-  const projectiles = [];
-  const blasts = [];
-
-  function drawFrame() {
-    const w = W(), h = H();
-    ctx.clearRect(0, 0, w, h);
-    ctx.fillStyle = '#04101e';
-    ctx.fillRect(0, 0, w, h);
-
-    /* Aurora orbs */
-    orbs.forEach(o => {
-      o.x += o.vx; o.y += o.vy;
-      if (o.x < -o.r || o.x > 1 + o.r) o.vx *= -1;
-      if (o.y < -o.r || o.y > 1 + o.r) o.vy *= -1;
-      const cx = o.x * w, cy = o.y * h, rad = o.r * Math.min(w, h);
-      const g = ctx.createRadialGradient(cx, cy, 0, cx, cy, rad);
-      g.addColorStop(0,   `rgba(${o.color[0]},${o.color[1]},${o.color[2]},0.20)`);
-      g.addColorStop(0.5, `rgba(${o.color[0]},${o.color[1]},${o.color[2]},0.06)`);
-      g.addColorStop(1,   'rgba(0,0,0,0)');
-      ctx.beginPath();
-      ctx.arc(cx, cy, rad, 0, Math.PI * 2);
-      ctx.fillStyle = g;
-      ctx.fill();
-    });
-
-    /* Dot connections */
-    const MAX_CONN = 0.07 * Math.min(w, h);
-    for (let i = 0; i < dots.length; i++) {
-      for (let j = i + 1; j < dots.length; j++) {
-        const px = dots[i].x * w, py = dots[i].y * h;
-        const qx = dots[j].x * w, qy = dots[j].y * h;
-        const dx = px - qx, dy = py - qy;
-        const dist = Math.sqrt(dx * dx + dy * dy);
-        if (dist < MAX_CONN) {
-          ctx.beginPath();
-          ctx.strokeStyle = `rgba(60,150,230,${0.10 * (1 - dist / MAX_CONN)})`;
-          ctx.lineWidth = 0.5;
-          ctx.moveTo(px, py);
-          ctx.lineTo(qx, qy);
-          ctx.stroke();
-        }
-      }
-    }
-
-    /* Dots */
-    dots.forEach(d => {
-      d.x += d.vx; d.y += d.vy;
-      if (d.x < 0) d.x = 1; if (d.x > 1) d.x = 0;
-      if (d.y < 0) d.y = 1; if (d.y > 1) d.y = 0;
-      if (d.lit > 0) {
-        d.lit -= 0.04;
-        const glow = ctx.createRadialGradient(d.x * w, d.y * h, 0, d.x * w, d.y * h, d.r * 6 * d.lit);
-        glow.addColorStop(0, `rgba(180,230,255,${0.5 * d.lit})`);
-        glow.addColorStop(1, 'rgba(0,0,0,0)');
-        ctx.beginPath();
-        ctx.arc(d.x * w, d.y * h, d.r * 6 * d.lit, 0, Math.PI * 2);
-        ctx.fillStyle = glow;
-        ctx.fill();
-      }
-      ctx.beginPath();
-      ctx.arc(d.x * w, d.y * h, d.r + (d.lit > 0 ? d.lit * 1.5 : 0), 0, Math.PI * 2);
-      ctx.fillStyle = d.color;
-      ctx.fill();
-    });
-
-    /* Projectiles + blasts drawn in Task 7 */
-    drawProjectiles(w, h);
-    drawBlasts(w, h);
-
-    requestAnimationFrame(drawFrame);
-  }
-
-  /* Stubs expanded in Task 7 */
-  function drawProjectiles(w, h) {}
-  function drawBlasts(w, h) {}
-
-  drawFrame();
-})();
-  </script>
+  <script src="js/main.js"></script>
+  <script src="js/ui.js"></script>
 </body>
 </html>

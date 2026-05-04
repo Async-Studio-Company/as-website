@@ -1,0 +1,91 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#04101e"/>
+      <stop offset="100%" stop-color="#020b16"/>
+    </linearGradient>
+    <radialGradient id="orb1" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#1e5ab8" stop-opacity="0.55"/>
+      <stop offset="100%" stop-color="#1e5ab8" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="orb2" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#0a3878" stop-opacity="0.42"/>
+      <stop offset="100%" stop-color="#0a3878" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="orb3" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#10608c" stop-opacity="0.35"/>
+      <stop offset="100%" stop-color="#10608c" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="orb4" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#20d8e8" stop-opacity="0.14"/>
+      <stop offset="100%" stop-color="#20d8e8" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="wm" x1="120" y1="220" x2="1080" y2="300" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#c8e8ff"/>
+      <stop offset="35%" stop-color="#70b8f8"/>
+      <stop offset="75%" stop-color="#28d8f0"/>
+      <stop offset="100%" stop-color="#80c8ff"/>
+    </linearGradient>
+    <filter id="wm-glow" x="-15%" y="-80%" width="130%" height="260%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blur"/>
+      <feColorMatrix in="blur" type="matrix"
+        values="0 0 0 0 0.08  0 0 0 0 0.47  0 0 0 0 0.9  0 0 0 0.55 0" result="c"/>
+      <feMerge><feMergeNode in="c"/><feMergeNode in="c"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <rect x="1" y="1" width="1198" height="628" fill="none" stroke="rgba(30,90,170,0.18)" stroke-width="1"/>
+
+  <ellipse cx="200" cy="170" rx="380" ry="290" fill="url(#orb1)"/>
+  <ellipse cx="1010" cy="470" rx="420" ry="310" fill="url(#orb2)"/>
+  <ellipse cx="600" cy="315" rx="270" ry="190" fill="url(#orb3)"/>
+  <ellipse cx="780" cy="130" rx="220" ry="170" fill="url(#orb4)"/>
+
+  <text x="600" y="192"
+    font-family="Arial, Helvetica, sans-serif"
+    font-weight="400"
+    font-size="14"
+    letter-spacing="6"
+    text-anchor="middle"
+    fill="rgba(80,190,235,0.65)">INDEPENDENT GAME DEVELOPERS</text>
+
+  <text x="600" y="290"
+    font-family="'Arial Black', Arial, Helvetica, sans-serif"
+    font-weight="900"
+    font-size="100"
+    letter-spacing="16"
+    text-anchor="middle"
+    fill="url(#wm)"
+    filter="url(#wm-glow)">ASYNC STUDIO</text>
+
+  <line x1="440" y1="322" x2="760" y2="322" stroke="rgba(50,160,220,0.35)" stroke-width="1"/>
+
+  <text x="600" y="368"
+    font-family="Arial, Helvetica, sans-serif"
+    font-weight="600"
+    font-size="22"
+    letter-spacing="1"
+    text-anchor="middle"
+    fill="rgba(200,235,255,0.85)">Crafting Refreshing Experiences</text>
+
+  <text x="600" y="402"
+    font-family="Arial, Helvetica, sans-serif"
+    font-weight="400"
+    font-size="22"
+    letter-spacing="1"
+    text-anchor="middle"
+    fill="rgba(170,215,250,0.70)">Inspired by your Favorite Games</text>
+
+  <circle cx="590" cy="448" r="1.8" fill="rgba(60,150,220,0.35)"/>
+  <circle cx="600" cy="448" r="1.8" fill="rgba(40,216,240,0.45)"/>
+  <circle cx="610" cy="448" r="1.8" fill="rgba(60,150,220,0.35)"/>
+
+  <text x="600" y="577"
+    font-family="Arial, Helvetica, sans-serif"
+    font-weight="400"
+    font-size="16"
+    letter-spacing="3.5"
+    text-anchor="middle"
+    fill="rgba(80,160,220,0.48)">asyncstudio.be</text>
+</svg>

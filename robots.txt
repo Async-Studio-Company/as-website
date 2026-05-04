@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://asyncstudio.be/sitemap.xml
