@@ -47,6 +47,8 @@
     html {
       scroll-behavior: smooth;
       scroll-snap-type: y mandatory;
+      scrollbar-width: thin;
+      scrollbar-color: rgba(30, 90, 170, 0.35) #040c1a;
     }
 
     body {
@@ -70,6 +72,7 @@
     /* ---- Sections: full-screen scroll snap ---- */
     section {
       height: 100vh;
+      height: 100dvh;
       scroll-snap-align: start;
       display: flex;
       flex-direction: column;
@@ -130,6 +133,12 @@
     }
 
     .nav-links a:hover { color: rgba(130, 200, 240, 0.9); }
+
+    .nav-links a:focus-visible {
+      outline: 2px solid rgba(80, 180, 240, 0.8);
+      outline-offset: 3px;
+      border-radius: 2px;
+    }
 
     /* ---- Scrollbar ---- */
     ::-webkit-scrollbar { width: 5px; }
@@ -198,11 +207,15 @@
       box-shadow: 0 4px 36px rgba(20, 120, 220, 0.4), inset 0 1px 0 rgba(120, 200, 255, 0.15);
     }
 
+    .hero-cta:focus-visible {
+      outline: 2px solid rgba(80, 180, 240, 0.8);
+      outline-offset: 4px;
+    }
+
     /* ---- About ---- */
     #about {
       justify-content: space-between;
-      padding-top: 80px;
-      padding-bottom: 0;
+      padding: 80px 0 0;
     }
 
     .about-upper {
@@ -211,6 +224,8 @@
       align-items: center;
       flex: 1;
       justify-content: center;
+      padding-left: 40px;
+      padding-right: 40px;
     }
 
     .section-label {
@@ -278,6 +293,12 @@
       letter-spacing: 0.1em;
       color: rgba(70, 110, 155, 0.45);
     }
+
+    /* ---- Reduced motion ---- */
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .skip-link, .hero-cta, .nav-links a { transition: none; }
+    }
   </style>
 </head>
 <body>
@@ -294,7 +315,7 @@
   </nav>
 
   <main>
-    <section id="hero" aria-label="Hero">
+    <section id="hero" tabindex="-1" aria-label="Hero">
       <h1 class="hero-wordmark">Async Studio</h1>
       <p class="hero-tagline-main">Crafting Worlds where every Run Tells a New Story</p>
       <div class="hero-rule" aria-hidden="true"></div>
